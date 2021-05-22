@@ -13,8 +13,6 @@ mySet.h
 /home/nikita/CLionProjects/Myset/mySet.h
 iostream
 /home/nikita/CLionProjects/Myset/iostream
-string
-/home/nikita/CLionProjects/Myset/string
 
 /home/nikita/CLionProjects/Myset/mySet.h
 mySetIterator.h
@@ -22,6 +20,10 @@ mySetIterator.h
 func.cpp
 /home/nikita/CLionProjects/Myset/func.cpp
 algorithm
+-
+string
+/home/nikita/CLionProjects/Myset/string
+stdexcept
 -
 
 /home/nikita/CLionProjects/Myset/mySetIterator.h
