@@ -3,6 +3,8 @@
 #include "mySetReverseIterator.h"
 #include "func.cpp"
 #include <algorithm>
+#include "iostream"
+#include "string"
 
 template <typename T, typename C = std::less<T>>
 class mySet

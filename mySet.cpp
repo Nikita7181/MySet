@@ -1,7 +1,4 @@
 #include "mySet.h"
-#include "iostream"
-#include "string"
-
 
 template <typename T, typename C >
 void mySet<T, C>::print()

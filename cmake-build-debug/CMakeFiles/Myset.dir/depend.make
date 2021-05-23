@@ -5,12 +5,18 @@ CMakeFiles/Myset.dir/main.cpp.o: ../func.cpp
 CMakeFiles/Myset.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Myset.dir/main.cpp.o: ../mySet.h
 CMakeFiles/Myset.dir/main.cpp.o: ../mySetIterator.h
+CMakeFiles/Myset.dir/main.cpp.o: ../mySetReverseIterator.h
 
 CMakeFiles/Myset.dir/mySet.cpp.o: ../func.cpp
 CMakeFiles/Myset.dir/mySet.cpp.o: ../mySet.cpp
 CMakeFiles/Myset.dir/mySet.cpp.o: ../mySet.h
 CMakeFiles/Myset.dir/mySet.cpp.o: ../mySetIterator.h
+CMakeFiles/Myset.dir/mySet.cpp.o: ../mySetReverseIterator.h
 
 CMakeFiles/Myset.dir/mySetIterator.cpp.o: ../mySetIterator.cpp
 CMakeFiles/Myset.dir/mySetIterator.cpp.o: ../mySetIterator.h
+
+CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o: ../mySetIterator.h
+CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o: ../mySetReverseIterator.cpp
+CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o: ../mySetReverseIterator.h
 
