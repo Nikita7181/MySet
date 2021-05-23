@@ -30,10 +30,7 @@ public:
     const reverse_iterator rcbegin() const;
     const reverse_iterator rcend() const;
 
-    int size() const
-    {
-        return data_size;   
-    }
+    int size() const {return data_size;}
 
     void sort(C comp);
     void clear();
@@ -48,5 +45,4 @@ public:
     void merge(mySet<T, C>& ob);
     T extract(T value);
     T extract(const iterator &position);
-
 };

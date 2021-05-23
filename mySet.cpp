@@ -18,8 +18,7 @@ void mySet<T, C>::r_print()
 
 
 template <typename T, typename C>
-mySet<T, C>::mySet() :data_size(0), data(nullptr)
-{}
+mySet<T, C>::mySet() :data_size(0), data(nullptr){}
 
 template <typename T, typename C>
 mySet<T, C>::~mySet()
