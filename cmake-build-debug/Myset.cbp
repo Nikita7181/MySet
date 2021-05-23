@@ -97,6 +97,12 @@
 		<Unit filename="/home/nikita/CLionProjects/Myset/mySetIterator.h">
 			<Option target="Myset"/>
 		</Unit>
+		<Unit filename="/home/nikita/CLionProjects/Myset/mySetReverseIterator.cpp">
+			<Option target="Myset"/>
+		</Unit>
+		<Unit filename="/home/nikita/CLionProjects/Myset/mySetReverseIterator.h">
+			<Option target="Myset"/>
+		</Unit>
 		<Unit filename="/home/nikita/CLionProjects/Myset/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

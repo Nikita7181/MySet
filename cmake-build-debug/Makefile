@@ -224,6 +224,33 @@ mySetIterator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/mySetIterator.cpp.s
 .PHONY : mySetIterator.cpp.s
 
+mySetReverseIterator.o: mySetReverseIterator.cpp.o
+
+.PHONY : mySetReverseIterator.o
+
+# target to build an object file
+mySetReverseIterator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o
+.PHONY : mySetReverseIterator.cpp.o
+
+mySetReverseIterator.i: mySetReverseIterator.cpp.i
+
+.PHONY : mySetReverseIterator.i
+
+# target to preprocess a source file
+mySetReverseIterator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/mySetReverseIterator.cpp.i
+.PHONY : mySetReverseIterator.cpp.i
+
+mySetReverseIterator.s: mySetReverseIterator.cpp.s
+
+.PHONY : mySetReverseIterator.s
+
+# target to generate assembly for a file
+mySetReverseIterator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/mySetReverseIterator.cpp.s
+.PHONY : mySetReverseIterator.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -242,6 +269,9 @@ help:
 	@echo "... mySetIterator.o"
 	@echo "... mySetIterator.i"
 	@echo "... mySetIterator.s"
+	@echo "... mySetReverseIterator.o"
+	@echo "... mySetReverseIterator.i"
+	@echo "... mySetReverseIterator.s"
 .PHONY : help
 
 

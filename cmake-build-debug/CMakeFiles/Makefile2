@@ -94,12 +94,12 @@ clean: CMakeFiles/Myset.dir/clean
 CMakeFiles/Myset.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target Myset"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target Myset"
 .PHONY : CMakeFiles/Myset.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Myset.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Myset.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Myset.dir/rule

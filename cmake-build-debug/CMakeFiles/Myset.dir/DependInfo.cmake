@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/nikita/CLionProjects/Myset/main.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/main.cpp.o"
   "/home/nikita/CLionProjects/Myset/mySet.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/mySet.cpp.o"
   "/home/nikita/CLionProjects/Myset/mySetIterator.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/mySetIterator.cpp.o"
+  "/home/nikita/CLionProjects/Myset/mySetReverseIterator.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
