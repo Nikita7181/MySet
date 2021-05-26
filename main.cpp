@@ -48,7 +48,7 @@ int main ()
 
     std::cout << std::endl << "int set 1; count(10) " << msi2.count(10)<< std::endl;
     std::cout << std::endl << "int set 1; find(10) " << *msi2.find(10);
-    
+
     std::cout <<std::endl << "Merge ";
     msi1.merge(msi2);
     std::cout << std::endl << "int set 1" << std::endl;
