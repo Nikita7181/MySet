@@ -7,6 +7,7 @@ int main ()
     mySet<int, myComparator<int>> msi1;
     msi1.insert(1);
     msi1.insert(5);
+    msi1.insert(5);
     msi1.insert(2);
     msi1.insert(7);
     msi1.insert(9);
