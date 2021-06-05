@@ -152,7 +152,6 @@ void mySet<T,C>::insert(T value)
 
     data = temp;
     std::sort(begin(), end(), C());
-
 }
 
 template<typename T, typename C>
@@ -171,8 +170,9 @@ typename mySet<T, C>::iterator mySet<T,C>::find(T value)
 {
     for(int i = 0; i < data_size; i++)
     {
+        iterator temp = begin()++;
         if (data[i] == value)
-            return begin()+i;
+            return begin();
     }
     return end();
 }
@@ -213,13 +213,14 @@ void mySet<T,C>::erase(const iterator &position)
 {
     try
     {
-        if((position > end()) || (position < begin()))
+        if(position == end())
         {
             throw std::out_of_range("Out of range");
         }
         for (int i = 0; i < data_size; i++)
         {
-            if(begin()+i == position)
+            iterator temp1 = begin()++;
+            if(temp1 == position)
             {
                 data[i] = data[data_size];
                 for(int j = i; j < data_size; j++)
@@ -241,7 +242,7 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
 {
     try
     {
-        if((first_position>end()) || (first_position < begin()) || (first_position > last_position))
+        if((first_position == end()) || (first_position == last_position))
         {
             throw std::out_of_range("Out of range");
         }
@@ -250,12 +251,13 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
             int distance = std::distance(first_position, last_position);
             for (int i = 0; i < data_size; i++)
             {
-                if(begin()+i == first_position)
+                iterator temp = begin()++;
+                if(temp == first_position)
                 {
-                    iterator temp = begin()+i;
                     for (int j = 1; j < distance; j++)
                     {
-                         erase (temp + j+ i);
+                        temp++;
+                         erase (temp);
                         temp--;
                     }
                     break;
@@ -323,13 +325,14 @@ T mySet<T,C>::extract(const iterator &position)
 {
     try
     {
-        if((position > end()) || (position < begin()))
+        if(position == end())
         {
             throw std::out_of_range("Out of range");
         }
         for (int i = 0; i < data_size; i++)
         {
-            if(begin()+i == position)
+            iterator temp = begin()++;
+            if(temp == position)
             {
                 T result = data[i];
                 data[i] = data[data_size];
@@ -347,7 +350,6 @@ T mySet<T,C>::extract(const iterator &position)
         std::cout << e.what() << std::endl;
     }
 }
-
 template class mySet<int, myComparator<int>>;
 template class mySet<float, myComparator<float>>;
 template class mySet<std::string, myComparator<std::string>>;

@@ -53,24 +53,6 @@ public:
         ++pos;
         return temp;
     }
-
-    mySetReverseIterator operator+(const difference_type& diff) const noexcept
-    {return mySetReverseIterator(pos - diff);}
-
-    friend inline mySetReverseIterator operator+(const difference_type& diff, const mySetReverseIterator& ob)
-    {return mySetReverseIterator(ob.pos - diff);}
-
-    mySetReverseIterator operator-(const difference_type& diff) const noexcept
-    {return mySetReverseIterator(pos + diff);}
-
-    difference_type operator-(const mySetReverseIterator& ob) const
-    {return std::distance(ob.pos, pos);}
-
-    bool operator>(const mySetReverseIterator& ob) const
-    {return pos > ob.pos;};
-
-    bool operator<(const mySetReverseIterator& ob) const
-    {return pos < ob.pos;};
 };
 
 

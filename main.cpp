@@ -58,7 +58,7 @@ int main ()
     msi2.print();
     std::cout <<std::endl << "Extract by val = " << msi1.extract(2) <<std::endl;
     msi1.print();
-    std::cout <<std::endl << "Extract by iter (begin + 2): val = " << msi1.extract(msi1.begin()+2) <<std::endl;
+    std::cout <<std::endl << "Extract by iter (begin + 2): val = " << msi1.extract(msi1.begin()++) <<std::endl;
     msi1.print();
     std::cout << std::endl << "Reverse iterator print" << std::endl;
     msi1.r_print();

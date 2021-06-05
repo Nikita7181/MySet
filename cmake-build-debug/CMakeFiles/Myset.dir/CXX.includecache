@@ -34,11 +34,19 @@ iostream
 string
 /home/nikita/CLionProjects/Myset/string
 
+/home/nikita/CLionProjects/Myset/mySetIterator.cpp
+mySetIterator.h
+/home/nikita/CLionProjects/Myset/mySetIterator.h
+
 /home/nikita/CLionProjects/Myset/mySetIterator.h
 algorithm
 -
 iterator
 -
+
+/home/nikita/CLionProjects/Myset/mySetReverseIterator.cpp
+mySetReverseIterator.h
+/home/nikita/CLionProjects/Myset/mySetReverseIterator.h
 
 /home/nikita/CLionProjects/Myset/mySetReverseIterator.h
 algorithm
