@@ -33,6 +33,7 @@ public:
         return data_size;   
     }
 
+    mySet& operator = (mySet const& ob);
     void sort();
     void clear();
     bool empty() const;
