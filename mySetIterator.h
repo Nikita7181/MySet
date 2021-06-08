@@ -53,21 +53,21 @@ public:
         return temp;
     }
 
-    mySetIterator operator+(const difference_type& diff) const noexcept
-    {return mySetIterator(pos + diff);}
+    // mySetIterator operator+(const difference_type& diff) const noexcept
+    // {return mySetIterator(pos + diff);}
 
-    friend inline mySetIterator operator+(const difference_type& diff, const mySetIterator& ob)
-    {return mySetIterator(ob.pos + diff);}
+    // friend inline mySetIterator operator+(const difference_type& diff, const mySetIterator& ob)
+    // {return mySetIterator(ob.pos + diff);}
 
-    mySetIterator operator-(const difference_type& diff) const noexcept
-    {return mySetIterator(pos - diff);}
+    // mySetIterator operator-(const difference_type& diff) const noexcept
+    // {return mySetIterator(pos - diff);}
 
-    difference_type operator-(const mySetIterator& ob) const
-    {return std::distance(ob.pos, pos);}
+    // difference_type operator-(const mySetIterator& ob) const
+    // {return std::distance(ob.pos, pos);}
 
-    bool operator>(const mySetIterator& ob) const
-    {return pos > ob.pos;};
+    // bool operator>(const mySetIterator& ob) const
+    // {return pos > ob.pos;};
 
-    bool operator<(const mySetIterator& ob) const
-    {return pos < ob.pos;};
+    // bool operator<(const mySetIterator& ob) const
+    // {return pos < ob.pos;};
 };

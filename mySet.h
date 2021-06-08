@@ -3,8 +3,6 @@
 #include "mySetReverseIterator.h"
 #include "func.cpp"
 #include <algorithm>
-#include "iostream"
-#include "string"
 
 template <typename T, typename C = std::less<T>>
 class mySet
@@ -30,10 +28,12 @@ public:
     const reverse_iterator rcbegin() const;
     const reverse_iterator rcend() const;
 
-    int size() const {return data_size;}
+    int size() const
+    {
+        return data_size;   
+    }
 
-    mySet& operator = (mySet const& ob);
-    void sort(C comp);
+    void sort();
     void clear();
     bool empty() const;
     void swap(mySet<T, C>& ob);
@@ -46,4 +46,5 @@ public:
     void merge(mySet<T, C>& ob);
     T extract(T value);
     T extract(const iterator &position);
+
 };
