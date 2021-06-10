@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/nikita/CLionProjects/Myset/func.cpp">
+			<Option target="Myset"/>
+		</Unit>
 		<Unit filename="/home/nikita/CLionProjects/Myset/main.cpp">
 			<Option target="Myset"/>
 		</Unit>

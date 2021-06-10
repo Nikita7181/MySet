@@ -143,6 +143,33 @@ Myset/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/build
 .PHONY : Myset/fast
 
+func.o: func.cpp.o
+
+.PHONY : func.o
+
+# target to build an object file
+func.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/func.cpp.o
+.PHONY : func.cpp.o
+
+func.i: func.cpp.i
+
+.PHONY : func.i
+
+# target to preprocess a source file
+func.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/func.cpp.i
+.PHONY : func.cpp.i
+
+func.s: func.cpp.s
+
+.PHONY : func.s
+
+# target to generate assembly for a file
+func.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Myset.dir/build.make CMakeFiles/Myset.dir/func.cpp.s
+.PHONY : func.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -260,6 +287,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Myset"
+	@echo "... func.o"
+	@echo "... func.i"
+	@echo "... func.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

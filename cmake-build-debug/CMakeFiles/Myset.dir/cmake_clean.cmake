@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Myset.dir/func.cpp.o"
   "CMakeFiles/Myset.dir/main.cpp.o"
   "CMakeFiles/Myset.dir/mySet.cpp.o"
   "CMakeFiles/Myset.dir/mySetIterator.cpp.o"

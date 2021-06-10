@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/nikita/CLionProjects/Myset/func.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/func.cpp.o"
   "/home/nikita/CLionProjects/Myset/main.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/main.cpp.o"
   "/home/nikita/CLionProjects/Myset/mySet.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/mySet.cpp.o"
   "/home/nikita/CLionProjects/Myset/mySetIterator.cpp" "/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles/Myset.dir/mySetIterator.cpp.o"

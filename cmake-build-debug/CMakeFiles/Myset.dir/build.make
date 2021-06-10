@@ -77,9 +77,22 @@ include CMakeFiles/Myset.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Myset.dir/flags.make
 
+CMakeFiles/Myset.dir/func.cpp.o: CMakeFiles/Myset.dir/flags.make
+CMakeFiles/Myset.dir/func.cpp.o: ../func.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Myset.dir/func.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Myset.dir/func.cpp.o -c /home/nikita/CLionProjects/Myset/func.cpp
+
+CMakeFiles/Myset.dir/func.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Myset.dir/func.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/CLionProjects/Myset/func.cpp > CMakeFiles/Myset.dir/func.cpp.i
+
+CMakeFiles/Myset.dir/func.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Myset.dir/func.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/CLionProjects/Myset/func.cpp -o CMakeFiles/Myset.dir/func.cpp.s
+
 CMakeFiles/Myset.dir/main.cpp.o: CMakeFiles/Myset.dir/flags.make
 CMakeFiles/Myset.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Myset.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Myset.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Myset.dir/main.cpp.o -c /home/nikita/CLionProjects/Myset/main.cpp
 
 CMakeFiles/Myset.dir/main.cpp.i: cmake_force
@@ -92,7 +105,7 @@ CMakeFiles/Myset.dir/main.cpp.s: cmake_force
 
 CMakeFiles/Myset.dir/mySet.cpp.o: CMakeFiles/Myset.dir/flags.make
 CMakeFiles/Myset.dir/mySet.cpp.o: ../mySet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Myset.dir/mySet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Myset.dir/mySet.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Myset.dir/mySet.cpp.o -c /home/nikita/CLionProjects/Myset/mySet.cpp
 
 CMakeFiles/Myset.dir/mySet.cpp.i: cmake_force
@@ -105,7 +118,7 @@ CMakeFiles/Myset.dir/mySet.cpp.s: cmake_force
 
 CMakeFiles/Myset.dir/mySetIterator.cpp.o: CMakeFiles/Myset.dir/flags.make
 CMakeFiles/Myset.dir/mySetIterator.cpp.o: ../mySetIterator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Myset.dir/mySetIterator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Myset.dir/mySetIterator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Myset.dir/mySetIterator.cpp.o -c /home/nikita/CLionProjects/Myset/mySetIterator.cpp
 
 CMakeFiles/Myset.dir/mySetIterator.cpp.i: cmake_force
@@ -118,7 +131,7 @@ CMakeFiles/Myset.dir/mySetIterator.cpp.s: cmake_force
 
 CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o: CMakeFiles/Myset.dir/flags.make
 CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o: ../mySetReverseIterator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o -c /home/nikita/CLionProjects/Myset/mySetReverseIterator.cpp
 
 CMakeFiles/Myset.dir/mySetReverseIterator.cpp.i: cmake_force
@@ -131,6 +144,7 @@ CMakeFiles/Myset.dir/mySetReverseIterator.cpp.s: cmake_force
 
 # Object files for target Myset
 Myset_OBJECTS = \
+"CMakeFiles/Myset.dir/func.cpp.o" \
 "CMakeFiles/Myset.dir/main.cpp.o" \
 "CMakeFiles/Myset.dir/mySet.cpp.o" \
 "CMakeFiles/Myset.dir/mySetIterator.cpp.o" \
@@ -139,13 +153,14 @@ Myset_OBJECTS = \
 # External object files for target Myset
 Myset_EXTERNAL_OBJECTS =
 
+Myset: CMakeFiles/Myset.dir/func.cpp.o
 Myset: CMakeFiles/Myset.dir/main.cpp.o
 Myset: CMakeFiles/Myset.dir/mySet.cpp.o
 Myset: CMakeFiles/Myset.dir/mySetIterator.cpp.o
 Myset: CMakeFiles/Myset.dir/mySetReverseIterator.cpp.o
 Myset: CMakeFiles/Myset.dir/build.make
 Myset: CMakeFiles/Myset.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Myset"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nikita/CLionProjects/Myset/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Myset"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Myset.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
