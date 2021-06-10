@@ -14,6 +14,7 @@ public:
     using iterator = mySetIterator<T>;
     using reverse_iterator = mySetReverseIterator<T>;
     mySet ();
+    mySet (mySet<T,C>& ob);
     ~mySet();
     void print();
     void r_print();
