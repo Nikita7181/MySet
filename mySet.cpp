@@ -19,6 +19,22 @@ void mySet<T, C>::r_print()
     
 } 
 
+template <typename T, typename C >
+mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
+{
+    if(this != &ob)
+    {
+        if(data_size != ob.data_size)
+        {
+            delete[] data;
+            data_size = ob.data_size;
+            data = new T[ob.data_size];
+        }
+        for(int i =0; i < data_size; i++)
+            data[i] = ob.data[i];
+    }
+    return *this;
+}
 
 template <typename T, typename C>
 mySet<T, C>::mySet() :data_size(0), data(nullptr)
