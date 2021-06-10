@@ -37,6 +37,16 @@ mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
 }
 
 template <typename T, typename C>
+mySet<T, C>::mySet(mySet<T,C>& ob) :data_size(ob.data_size)
+{
+    data = new T[ob.size()];
+    for (int i = 0; i < data_size; i++)
+    {
+        data[i] = ob.data[i];
+    }
+}
+
+template <typename T, typename C>
 mySet<T, C>::mySet() :data_size(0), data(nullptr)
 {}
 
