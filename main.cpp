@@ -63,7 +63,7 @@ int main ()
     msi2.print();
     std::cout <<std::endl << "Extract by val = " << msi1.extract(2) <<std::endl;
     msi1.print();
-    std::cout <<std::endl << "Extract by iter (begin++): val = " << msi1.extract(msi1.begin()) <<std::endl;
+    std::cout <<std::endl << "Extract by iter (begin): val = " << msi1.extract(msi1.begin()) <<std::endl;
     msi1.print();
     std::cout <<std::endl << "Erase begin()++" <<std::endl;
     mySetIterator<int> it = msi1.begin();
