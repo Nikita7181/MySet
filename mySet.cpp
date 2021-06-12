@@ -28,7 +28,7 @@ mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
         {
             delete[] data;
             data_size = ob.data_size;
-            data = new T[ob.data_size];
+            data = new T[ob.data_size+1];
         }
         for(int i =0; i < data_size; i++)
             data[i] = ob.data[i];
@@ -39,7 +39,7 @@ mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
 template <typename T, typename C>
 mySet<T, C>::mySet(mySet<T,C>& ob) :data_size(ob.data_size)
 {
-    data = new T[ob.size()];
+    data = new T[ob.size()+1];
     for (int i = 0; i < data_size; i++)
     {
         data[i] = ob.data[i];
@@ -132,22 +132,10 @@ void mySet<T, C>::clear()
 template<typename T, typename C>
 void mySet<T,C>::swap(mySet<T, C>& ob)
 {
-    T *temp = new T[data_size];
-    T *temp_2 = new T[ob.data_size];
-    for (int i = 0; i < data_size; i++)
-    {
-        temp[i] = data[i];
-    }
-    for (int i = 0; i < ob.data_size; i++)
-    {
-        temp_2[i] = ob.data[i];
-    }
-    int t_s = data_size;
-    data_size = ob.data_size;
-    ob.data_size = t_s;
-
-    data = temp_2;
-    ob.data = temp;
+    mySet<T,C> temp = *this;
+    *this = ob;
+    ob = temp;
+    temp.clear();
 
 }
 
@@ -164,7 +152,7 @@ void mySet<T,C>::insert(T value)
     temp[data_size-1]=value;
 
     data = temp;
-    //std::sort(begin(), end(), C());
+
     sort();
 
 }
@@ -175,7 +163,7 @@ void mySet<T,C>::sort ()
     C comp;
     for( int i=1; i< data_size; ++i)
 	{
-		//for (int j=i; j>0 && data[j-1]>data[j];--j)
+
 		for (int j=i; j>0 && comp(data[j-1],data[j]);--j)
 		{
 			std::swap(data[j-1], data[j]);
@@ -212,7 +200,6 @@ typename mySet<T, C>::iterator mySet<T,C>::find(T value)
 template<typename T, typename C>
 void mySet<T,C>::erase(T value)
 {
-    try {
         if (data == nullptr)
         {
             return;
@@ -231,52 +218,29 @@ void mySet<T,C>::erase(T value)
                     return;
                 } 
             }
-            throw std::invalid_argument("Value not found");
         }
-    }
-    catch (std::invalid_argument &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
 }
 
 template<typename T, typename C>
 void mySet<T,C>::erase(const iterator &position)
 {
-    try
-    {
         if(position == end())
         {
             throw std::out_of_range("Out of range");
         }
 
-        iterator temp = begin();
-        for (int i = 0; i < data_size; i++)
+        int d = std::distance(begin(), position);
+        *position = data[size ()];
+        for (int j = d; j < size () - 1; j++)
         {
-            
-            if(temp == position)
-            {
-                data[i] = data[data_size];
-                for(int j = i; j < data_size; j++)
-                {
-                    data[j]=data[j+1];
-                }
-                data_size--;
-            }
-            temp++;
+            data[j] = data[j + 1];
         }
-    }
-    catch (std::out_of_range &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+        data_size--;
 }
 
 template<typename T, typename C>
 void mySet<T,C>::erase(const iterator &first_position, const iterator &last_position )
 {
-    try
-    {
         if((first_position == end()) || (first_position == last_position))
         {
             throw std::out_of_range("Out of range");
@@ -287,27 +251,19 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
             iterator temp_b = begin();
             for (int i = 0; i < data_size; i++)
             {
-                
+
                 if(temp_b == first_position)
                 {
                     iterator temp_e = temp_b;
                     for (int j = 1; j < distance; j++)
                     {
-                        //temp_e++;
                         erase (temp_e);
-                        //temp_e++;
                     }
                     break;
                 }
                 temp_b++;
             }
         }
-    }
-    catch(std::out_of_range &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
 }
 
 template<typename T, typename C>
@@ -321,7 +277,6 @@ void mySet<T,C>::merge(mySet<T, C>& ob)
             ob.erase(*i);
             --i;
         }
-        
     }
 
 }
@@ -329,11 +284,11 @@ void mySet<T,C>::merge(mySet<T, C>& ob)
 template<typename T, typename C>
 T mySet<T,C>::extract(T value)
 {
-    try {
         if (data == nullptr)
         {
             throw std::invalid_argument("Empty data");
-        } else
+        }
+        else if(count(value) == 1)
         {
             for (int i = 0; i < data_size; i++)
             {
@@ -347,51 +302,36 @@ T mySet<T,C>::extract(T value)
                     }
                     data_size--;
                     return result;
-                } 
-                //else
-                //{
-                //    throw std::invalid_argument("Value not found");
-                //}
+                }
             }
-            throw std::invalid_argument("Value not found");
         }
-    }
-    catch (std::invalid_argument &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+        else
+        {
+            return *end();
+        }
 }
 
 template<typename T, typename C>
 T mySet<T,C>::extract(const iterator &position)
 {
-    try
+    if (position == end ())
     {
-        if(position == end())
-        {
-            throw std::out_of_range("Out of range");
-        }
-        iterator temp = begin();
-        for (int i = 0; i < data_size; i++)
-        {
-            
-            if(temp == position)
-            {
-                T result = data[i];
-                data[i] = data[data_size];
-                for(int j = i; j < data_size; j++)
-                {
-                    data[j]=data[j+1];
-                }
-                data_size--;
-                return result;
-            }
-            temp++;
-        }
+        throw std::out_of_range ("Out of range");
     }
-    catch (std::out_of_range &e)
+    else if(count(*position) == 1)
     {
-        std::cout << e.what() << std::endl;
+        int d = std::distance (begin (), position);
+        T result = *position;
+        *position = data[data_size];
+        for (int j = d; j < data_size; j++) {
+            data[j] = data[j + 1];
+        }
+        data_size--;
+        return result;
+    }
+    else
+    {
+        return *end();
     }
 }
 
