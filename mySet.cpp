@@ -140,21 +140,22 @@ void mySet<T,C>::swap(mySet<T, C>& ob)
 }
 
 template<typename T, typename C>
-void mySet<T,C>::insert(T value)
+bool mySet<T,C>::insert(T value)
 {
-    if (count(value) == 1) return;
-    data_size++; 
-    T * temp = new T [data_size];
-    for (int i = 0; i < data_size - 1; i++)
-    {
-        temp[i] = data[i];
+    if (count(value) == 1) return false;
+    else {
+        data_size++;
+        T *temp = new T[data_size];
+        for (int i = 0; i < data_size - 1; i++) {
+            temp[i] = data[i];
+        }
+        temp[data_size - 1] = value;
+
+        data = temp;
+
+        sort ();
+        return true;
     }
-    temp[data_size-1]=value;
-
-    data = temp;
-
-    sort();
-
 }
 
 template<typename T, typename C>
@@ -262,12 +263,12 @@ void mySet<T,C>::merge(mySet<T, C>& ob)
 {
     for (auto i = ob.begin(); i != ob.end(); ++i)
     {
-        if (count (*i) == 0)
-        {
-            insert(*i);
-            ob.erase(i);
-            i--;
-        }
+            if(insert(*i))
+            {
+                ob.erase (i);
+                i--;
+            }
+
     }
 
 
