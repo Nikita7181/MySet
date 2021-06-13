@@ -87,21 +87,29 @@ const typename mySet<T, C>::iterator mySet<T, C>::cbegin() const
 /*reverse*/
 
 template <typename T, typename C>
-typename mySet<T, C>::reverse_iterator mySet<T, C>::rend() const
+ typename mySet<T, C>::reverse_iterator mySet<T, C>::rend() const
 {
-    return mySetReverseIterator(&data[-1]);
+    for(int i=data_size; i>0; i--)
+    {
+        data[i] = data[i - 1];
+    }
+    return mySetReverseIterator(&data[0]);
 }
 
 template <typename T, typename C>
 typename mySet<T, C>::reverse_iterator mySet<T, C>::rbegin() const
 {
-    return mySetReverseIterator(&data[data_size-1]);
+    return mySetReverseIterator(&data[data_size]);
 }
 
 template <typename T, typename C>
 const typename mySet<T, C>::reverse_iterator mySet<T, C>::rcend() const
 {
-    return mySetReverseIterator(&data[-1]);
+    for(int i=data_size; i>0; i--)
+    {
+        data[i]=data[i-1];
+    }
+    return mySetReverseIterator(&data[0]);
 }
 
 template <typename T, typename C>
@@ -265,7 +273,7 @@ void mySet<T,C>::merge(mySet<T, C>& ob)
     {
             if(insert(*i))
             {
-                ob.erase (i);
+                ob.erase(i);
                 i--;
             }
 
