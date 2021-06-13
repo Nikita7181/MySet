@@ -22,18 +22,12 @@ void mySet<T, C>::r_print()
 template <typename T, typename C >
 mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
 {
-    if(this != &ob)for(int i=data_size; i>0; i--)
-        {
-            data[i]=data[i-1];
-        }
+    if(this != &ob)
     {
-        if(data_size != ob.data_size)
-        {
             delete[] data;
             data_size = ob.data_size;
             data = new T[ob.data_size+1];
-        }
-        for(int i =1; i < data_size; i++)
+            for(int i =1; i < data_size; i++)
             data[i] = ob.data[i];
     }
     return *this;
@@ -253,8 +247,8 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
         else
         {
             int distance = std::distance(first_position, last_position);
-            int k = std::distance(begin(), last_position);
-                for (int i = std::distance(begin(), first_position)+1; i < std::distance(begin(), last_position); i++)
+            int k = std::distance(begin(), last_position)+1;
+                for (int i = std::distance(begin(), first_position)+2; i < std::distance(begin(), last_position)+1; i++)
                 {
                     data[i] = data[k];
                     k++;
