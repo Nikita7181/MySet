@@ -248,27 +248,13 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
         {
 
                 int distance = std::distance(first_position, last_position);
-                T* temp = new T[data_size - distance];
-
-                for (int i = 0; i <= std::distance(begin(), first_position); ++i)
-                {
-                    temp[i] = data[i];
-                }
-
-                for (int i = std::distance(begin(), last_position); i < data_size; ++i)
-                {
-                    temp[i] = data[i];
-                }
                 int k = std::distance(begin(), last_position);
                 for (int i = std::distance(begin(), first_position)+1; i < std::distance(begin(), last_position); i++)
                 {
-                    temp[i] = temp[k];
+                    data[i] = data[k];
                     k++;
                 }
-                delete[] data;
                 data_size = data_size - distance+1;
-                data = temp;
-
        }
 }
 
