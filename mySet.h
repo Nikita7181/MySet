@@ -32,14 +32,14 @@ public:
     int size() const
     {
         return data_size;   
-    }
+}
 
     mySet& operator = (mySet const& ob);
     void sort();
     void clear();
     bool empty() const;
     void swap(mySet<T, C>& ob);
-    void insert(T value);
+    bool insert(T value);
     iterator find(T value);
     int count (T value) const;
     void erase(T value);
