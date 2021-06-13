@@ -189,7 +189,6 @@ typename mySet<T, C>::iterator mySet<T,C>::find(T value)
     iterator temp = begin();
     for(int i = 0; i < data_size; i++)
     {
-        
         if (data[i] == value)
             return temp;
         temp++;    
@@ -247,23 +246,26 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
         }
         else
         {
-            int distance = std::distance(first_position, last_position);
-            iterator temp_b = begin();
-            for (int i = 0; i < data_size; i++)
-            {
 
-                if(temp_b == first_position)
+                int distance = std::distance(first_position, last_position);
+                T* temp = new T[data_size - distance];
+                int size_new = 0;
+
+                for (int i = 0; i <= std::distance(begin(), first_position); ++i)
                 {
-                    iterator temp_e = temp_b;
-                    for (int j = 1; j < distance; j++)
-                    {
-                        erase (temp_e);
-                    }
-                    break;
+                    temp[size_new] = data[i];
+                    size_new++;
                 }
-                temp_b++;
-            }
-        }
+
+                for (int i = std::distance(begin(), last_position); i < data_size; ++i)
+                {
+                    temp[size_new] = data[i];
+                    size_new++;
+                }
+                delete[] data;
+                data_size = size_new;
+                data = temp;
+       }
 }
 
 template<typename T, typename C>
@@ -274,10 +276,11 @@ void mySet<T,C>::merge(mySet<T, C>& ob)
         if (count (*i) == 0)
         {
             insert(*i);
-            ob.erase(*i);
-            --i;
+            ob.erase(i);
+            i--;
         }
     }
+
 
 }
 
