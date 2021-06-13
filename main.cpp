@@ -7,7 +7,7 @@ int main ()
     mySet<int, myComparator<int>> msi0;
     for (int i = 0; i < 100; i++)
     {
-        msi0.insert(rand()%101);
+        msi0.insert(i);
     }
 
     mySet<int, myComparator<int>> msi1;
@@ -24,11 +24,10 @@ int main ()
     mySet<int, myComparator<int>> msi2;
     msi2.insert(10);
     msi2.insert(50);
-        msi2.insert(1);  
+    msi2.insert(1);
     msi2.insert(20);
     msi2.insert(70);   
-        msi2.insert(3);  
-
+    msi2.insert(3);
 
     std::cout << std::endl << "int set 2" << std::endl;
     msi2.print();
@@ -54,7 +53,7 @@ int main ()
 
     std::cout << std::endl << "int set 1; count(10) " << msi2.count(10)<< std::endl;
     std::cout << std::endl << "int set 1; find(10) " << *msi2.find(10);
-    
+
     std::cout <<std::endl << "Merge ";
     msi1.merge(msi2);
     std::cout << std::endl << "int set 1" << std::endl;
@@ -70,15 +69,17 @@ int main ()
     it++;
 
     msi1.erase(it);
-    msi1.print();    
+    msi1.print();
     std::cout <<std::endl << "Erase by from begin to end" <<std::endl;
+    auto it2 = msi1.end();
+    it2--;
     msi1.erase(msi1.begin(),msi1.end());
     msi1.print();
+    std::cout << "Size " <<msi1.size() << std::endl;
  
     std::cout << std::endl << "Reverse iterator print" << std::endl;
     msi2.r_print();
-
     std::cout << std::endl << "--------------------" << std::endl;
-    msi0.print();
-    //msi1.swap(msi2);
+    msi0.r_print();
+
 }
