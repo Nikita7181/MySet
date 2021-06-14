@@ -6,7 +6,7 @@
 template <typename T, typename C >
 void mySet<T, C>::print()
 {
-    for (int i = 1; i < data_size; i++)
+    for (int i = 1; i < data_size+1; i++)
     {std::cout << data[i] << "  ";}
     
 } 
@@ -14,7 +14,9 @@ void mySet<T, C>::print()
 template <typename T, typename C >
 void mySet<T, C>::r_print()
 {
-    for (auto i = rbegin(); i != rend(); i++)
+    auto it = rbegin();
+    it++;
+    for (auto i = it; i != rend(); i++)
     {std::cout << *i << "  ";}
     
 } 
@@ -27,7 +29,7 @@ mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
             delete[] data;
             data_size = ob.data_size;
             data = new T[ob.data_size+2];
-            for(int i =1; i < data_size; i++)
+            for(int i =1; i < data_size+1; i++)
             data[i] = ob.data[i];
     }
     return *this;
@@ -37,14 +39,14 @@ template <typename T, typename C>
 mySet<T, C>::mySet(mySet<T,C>& ob) :data_size(ob.data_size)
 {
     data = new T[ob.size()+2];
-    for (int i = 1; i < data_size; i++)
+    for (int i = 1; i < data_size+1; i++)
     {
         data[i] = ob.data[i];
     }
 }
 
 template <typename T, typename C>
-mySet<T, C>::mySet() :data_size(1), data(nullptr)
+mySet<T, C>::mySet() :data_size(0), data(0)
 {
     data = new T[data_size+2];
 }
@@ -62,7 +64,7 @@ mySet<T, C>::~mySet()
 template <typename T, typename C>
 typename mySet<T, C>::iterator mySet<T, C>::end() const
 {
-    return mySetIterator(&data[data_size]);
+    return mySetIterator(&data[data_size+1]);
 }
 
 template <typename T, typename C>
@@ -74,7 +76,7 @@ typename mySet<T, C>::iterator mySet<T, C>::begin() const
 template <typename T, typename C>
 const typename mySet<T, C>::iterator mySet<T, C>::cend() const
 {
-    return mySetIterator(&data[data_size]);
+    return mySetIterator(&data[data_size+1]);
 }
 
 template <typename T, typename C>
@@ -94,7 +96,7 @@ template <typename T, typename C>
 template <typename T, typename C>
 typename mySet<T, C>::reverse_iterator mySet<T, C>::rbegin() const
 {
-    return mySetReverseIterator(&data[data_size-1]);
+    return mySetReverseIterator(&data[data_size]);
 }
 
 template <typename T, typename C>
@@ -106,7 +108,7 @@ const typename mySet<T, C>::reverse_iterator mySet<T, C>::rcend() const
 template <typename T, typename C>
 const typename mySet<T, C>::reverse_iterator mySet<T, C>::rcbegin() const
 {
-    return mySetReverseIterator(&data[data_size-1]);
+    return mySetReverseIterator(&data[data_size]);
 }
 
 /*reverse*/
@@ -160,12 +162,12 @@ bool mySet<T,C>::insert(T value)
         if (data[i] == value) return false;
 
         temp[j] = data[i];
-            if ((i == data_size-1) && (!comp(value,data[i]) == (value > data[i])) )
+            if ((i == size()-1) && (!comp(value,data[i]) == (value > data[i])) )
             {
                 temp[j + 1] = value;
                 break;
             }
-        if ((i == data_size) && (!comp(value,data[i]) == (value < data[i])) )
+        if ((i == size()) && (comp(value,data[i]) == (value < data[i])) )
         {
             temp[j + 1] = value;
             break;
@@ -198,11 +200,10 @@ bool mySet<T,C>::insert(T value)
     return true;
 }
 
-
 template<typename T, typename C>
 int mySet<T,C>::count (T value) const
 {
-    for(int i = 1; i < data_size; i++)
+    for(int i = 1; i < data_size+1; i++)
     {
         if (data[i] == value)
             return 1;
@@ -214,7 +215,7 @@ template<typename T, typename C>
 typename mySet<T, C>::iterator mySet<T,C>::find(T value)
 {
     iterator temp = begin();
-    for(int i = 1; i < data_size; i++)
+    for(int i = 1; i < data_size+1; i++)
     {
         if (data[i] == value)
             return temp;
@@ -231,7 +232,7 @@ void mySet<T,C>::erase(T value)
             return;
         } else
         {
-            for (int i = 1; i < data_size; i++)
+            for (int i = 1; i < data_size+1; i++)
             {
                 if (data[i] == value)
                 {
@@ -257,7 +258,7 @@ void mySet<T,C>::erase(const iterator &position)
 
         int d = std::distance(begin(), position);
         *position = data[size ()];
-        for (int j = d + 1; j < size () ; j++)
+        for (int j = d + 1; j < data_size+1; j++)
         {
             data[j] = data[j + 1];
         }
@@ -274,8 +275,8 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
         else
         {
             int distance = std::distance(first_position, last_position);
-            int k = std::distance(begin(), last_position)+1;
-                for (int i = std::distance(begin(), first_position)+2; i < std::distance(begin(), last_position)+1; i++)
+            int k = std::distance(begin(), last_position);
+                for (int i = std::distance(begin(), first_position)+2; i < std::distance(begin(), last_position); i++)
                 {
                     data[i] = data[k];
                     k++;
@@ -312,7 +313,7 @@ T mySet<T,C>::extract(T value)
                 {
                     T result = data[i];
                     data[i] = data[data_size];
-                    for (int j = i; j < data_size - 1; j++)
+                    for (int j = i; j < data_size; j++)
                     {
                         data[j] = data[j + 1];
                     }
@@ -339,7 +340,7 @@ T mySet<T,C>::extract(const iterator &position)
         int d = std::distance (begin (), position);
         T result = *position;
         *position = data[data_size];
-        for (int j = d; j < data_size; j++) {
+        for (int j = d; j < data_size+1; j++) {
             data[j] = data[j + 1];
         }
         data_size--;
