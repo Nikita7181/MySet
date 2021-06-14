@@ -15,10 +15,12 @@ int main ()
     msi1.insert(5);
     msi1.insert(2);
     msi1.insert(7);
+    msi1.insert(6);
     msi1.insert(9);
     msi1.insert(3);
     msi1.insert(2);
-    std::cout << std::endl << "int set 1" << std::endl;
+
+    std::cout << std::endl << "int set 1 " << "Size " << msi1.size() << std::endl;
     msi1.print();
 
     mySet<int, myComparator<int>> msi2;
@@ -29,7 +31,7 @@ int main ()
     msi2.insert(70);   
     msi2.insert(3);
 
-    std::cout << std::endl << "int set 2" << std::endl;
+    std::cout << std::endl << "int set 2 " << "Size " << msi2.size() << std::endl;
     msi2.print();
     //std::cout << msi1.empty();
 
@@ -72,8 +74,8 @@ int main ()
     msi1.print();
     std::cout <<std::endl << "Erase by from begin to end" <<std::endl;
     auto it2 = msi1.end();
-    it2--;
-    msi1.erase(msi1.begin(),msi1.end());
+    auto it1 = msi1.begin();
+    msi1.erase(it1,it2);
     msi1.print();
     std::cout << "Size " <<msi1.size() << std::endl;
  
