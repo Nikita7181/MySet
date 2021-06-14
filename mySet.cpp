@@ -26,7 +26,7 @@ mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
     {
             delete[] data;
             data_size = ob.data_size;
-            data = new T[ob.data_size+1];
+            data = new T[ob.data_size+2];
             for(int i =1; i < data_size; i++)
             data[i] = ob.data[i];
     }
@@ -36,7 +36,7 @@ mySet<T, C>& mySet<T, C>::operator=(mySet<T, C>const& ob)
 template <typename T, typename C>
 mySet<T, C>::mySet(mySet<T,C>& ob) :data_size(ob.data_size)
 {
-    data = new T[ob.size()+1];
+    data = new T[ob.size()+2];
     for (int i = 1; i < data_size; i++)
     {
         data[i] = ob.data[i];
@@ -46,7 +46,7 @@ mySet<T, C>::mySet(mySet<T,C>& ob) :data_size(ob.data_size)
 template <typename T, typename C>
 mySet<T, C>::mySet() :data_size(1), data(nullptr)
 {
-    data = new T[data_size];
+    data = new T[data_size+2];
 }
 
 template <typename T, typename C>
@@ -141,34 +141,61 @@ void mySet<T,C>::swap(mySet<T, C>& ob)
 template<typename T, typename C>
 bool mySet<T,C>::insert(T value)
 {
-    if (count(value) == 1) return false;
-    else {
+    T * temp = new T [data_size + 2];
+    C comp;
+    int i = 1, j = 1;
+    bool flag = false;
+
+    if (data_size == 1)
+    {
+        temp[j] = value;
         data_size++;
-        T *temp = new T[data_size];
-        for (int i = 0; i < data_size - 1; i++) {
-            temp[i] = data[i];
-        }
-        temp[data_size - 1] = value;
-
         data = temp;
-
-        sort ();
         return true;
     }
-}
 
-template<typename T, typename C>
-void mySet<T,C>::sort ()
-{
-    C comp;
-    for( int i=1; i< data_size; ++i)
-	{
+    while (i < data_size)
+    {
 
-		for (int j=i; j>1 && comp(data[j-1],data[j]);--j)
-		{
-			std::swap(data[j-1], data[j]);
-		}
-	}
+        if (data[i] == value) return false;
+
+        temp[j] = data[i];
+            if ((i == data_size-1) && (!comp(value,data[i]) == (value > data[i])) )
+            {
+                temp[j + 1] = value;
+                break;
+            }
+        if ((i == data_size) && (!comp(value,data[i]) == (value < data[i])) )
+        {
+            temp[j + 1] = value;
+            break;
+        }
+        else
+        {
+            if ((i == 1) && comp(value,data[i]))
+            {
+                temp[j] = value;
+                j++;
+                temp[j]= data[i];
+
+            }
+            else
+            if (!comp(value,data[i]) && comp(value,data[i+1]))
+            {
+                temp[j+1] = value;
+                j++;
+                temp[j+1] = data[i+1];
+                i++; j++;
+            }
+        }
+        j++; i++;
+
+    }
+
+    data_size++;
+    delete [] data;
+    data=temp;
+    return true;
 }
 
 
@@ -230,7 +257,7 @@ void mySet<T,C>::erase(const iterator &position)
 
         int d = std::distance(begin(), position);
         *position = data[size ()];
-        for (int j = d + 1; j < size () - 1; j++)
+        for (int j = d + 1; j < size () ; j++)
         {
             data[j] = data[j + 1];
         }
@@ -260,13 +287,13 @@ void mySet<T,C>::erase(const iterator &first_position, const iterator &last_posi
 template<typename T, typename C>
 void mySet<T,C>::merge(mySet<T, C>& ob)
 {
-    for (auto i = ob.begin(); i != ob.end(); ++i)
-    {
-            if(insert(*i))
-            {
-                ob.erase(i);
-                i--;
-            }
+    for (auto i = ob.begin (); i != ob.end (); ++i) {
+
+        if (insert (*i))
+        {
+            ob.erase (*i);
+            i--;
+        }
     }
 }
 
