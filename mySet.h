@@ -31,8 +31,8 @@ public:
 
     int size() const
     {
-        return data_size;   
-}
+        return data_size-1;
+    }
 
     mySet& operator = (mySet const& ob);
     void sort();
