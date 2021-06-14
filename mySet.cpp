@@ -143,12 +143,67 @@ void mySet<T,C>::swap(mySet<T, C>& ob)
 template<typename T, typename C>
 bool mySet<T,C>::insert(T value)
 {
+//    T * temp = new T [data_size + 2];
+//    C comp;
+//    int i = 1, j = 1;
+//    bool flag = false;
+//
+//    if (data_size == 1)
+//    {
+//        temp[j] = value;
+//        data_size++;
+//        data = temp;
+//        return true;
+//    }
+//
+//    while (i < data_size)
+//    {
+//
+//        if (data[i] == value) return false;
+//
+//        temp[j] = data[i];
+//        if ((i == size()-1) && (!comp(value,data[i]) == (value > data[i])) )
+//        {
+//            temp[j + 1] = value;
+//            break;
+//        }
+//        if ((i == size()+1) && (!comp(value,data[i]) == (value < data[i])) )
+//        {
+//            temp[j + 1] = value;
+//            break;
+//        }
+//        else
+//        {
+//            if ((i == 1) && comp(value,data[i]))
+//            {
+//                temp[j] = value;
+//                j++;
+//                temp[j]= data[i];
+//
+//            }
+//            else
+//            if (!comp(value,data[i]) && comp(value,data[i+1]))
+//            {
+//                temp[j+1] = value;
+//                j++;
+//                temp[j+1] = data[i+1];
+//                i++; j++;
+//            }
+//        }
+//        j++; i++;
+//
+//    }
+//
+//    data_size++;
+//    delete [] data;
+//    data=temp;
+//    return true;
     T * temp = new T [data_size + 2];
     C comp;
     int i = 1, j = 1;
     bool flag = false;
 
-    if (data_size == 1)
+    if (data_size == 0)
     {
         temp[j] = value;
         data_size++;
@@ -156,20 +211,14 @@ bool mySet<T,C>::insert(T value)
         return true;
     }
 
-    while (i < data_size)
+    while (i < data_size+1)
     {
-
         if (data[i] == value) return false;
 
         temp[j] = data[i];
-            if ((i == size()) && (!comp(value,data[i]) == (value > data[i])) )
-            {
-                temp[j + 1] = value;
-                break;
-            }
-        if ((i == size()) && (!comp(value,data[i]) == (value < data[i])) )
+        if (i == data_size)
         {
-            temp[j + 1] = value;
+            temp[j+1] = value;
             break;
         }
         else
