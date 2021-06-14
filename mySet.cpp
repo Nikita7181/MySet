@@ -162,12 +162,12 @@ bool mySet<T,C>::insert(T value)
         if (data[i] == value) return false;
 
         temp[j] = data[i];
-            if ((i == size()-1) && (!comp(value,data[i]) == (value > data[i])) )
+            if ((i == size()) && (!comp(value,data[i]) == (value > data[i])) )
             {
                 temp[j + 1] = value;
                 break;
             }
-        if ((i == size()) && (comp(value,data[i]) == (value < data[i])) )
+        if ((i == size()) && (!comp(value,data[i]) == (value < data[i])) )
         {
             temp[j + 1] = value;
             break;
