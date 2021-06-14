@@ -2,6 +2,11 @@
 #include <string>
 #include "mySet.h"
 
+auto foo0(int a)
+{
+    std::cout << a << " ";
+}
+
 int main ()
 {
     mySet<int, myComparator<int>> msi0;
@@ -83,5 +88,14 @@ int main ()
     msi2.r_print();
     std::cout << std::endl << "--------------------" << std::endl;
     msi0.r_print();
-
+    std::cout << std::endl;
+    auto result1=std::find(msi2.begin(), msi2.end(), 1);
+    if (result1 == msi2.end())
+    {
+        std::cout << "The number is not found" << std::endl;
+    } else
+    {
+        std::cout << "the number is found" << std::endl;
+    }
+    std::for_each(msi2.begin(),msi2.end(),foo0);
 }
